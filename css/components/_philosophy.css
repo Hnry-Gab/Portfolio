@@ -1,175 +1,112 @@
-/* Philosophy Section */
-.philosophy {
-    padding: var(--space-xxl) var(--space-m);
-    background: var(--bg-secondary);
+/* ==========================================================================
+   COMPONENT: PHILOSOPHY
+   Tree-style visual connection
+   ========================================================================== */
+
+.c-philosophy {
     position: relative;
+}
+
+/* Central Quote */
+.c-philosophy__quote {
     text-align: center;
-}
-
-.philosophy__container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Quote */
-.philosophy__quote-container {
-    max-width: 800px;
-    margin-bottom: var(--space-l);
+    margin-bottom: var(--space-3xl);
     position: relative;
 }
 
-.philosophy__quote {
-    font-size: 1.5rem;
-    font-style: italic;
-    color: var(--text-primary);
-    line-height: 1.6;
+.c-philosophy__quote blockquote {
+    font-size: var(--text-h2);
+    font-weight: var(--weight-medium);
+    color: var(--foreground);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: var(--leading-relaxed);
 }
 
-.philosophy__quote::before,
-.philosophy__quote::after {
-    content: '"';
-    color: var(--accent-primary);
-    font-size: 3rem;
-    position: absolute;
-    top: -20px;
-    font-family: serif;
-}
-
-.philosophy__quote::before {
-    left: -40px;
-}
-
-.philosophy__quote::after {
-    right: -40px;
-}
-
-.philosophy__author {
+.c-philosophy__quote cite {
     display: block;
-    margin-top: var(--space-s);
-    font-size: 1rem;
-    color: var(--text-secondary);
+    margin-top: var(--space-md);
+    font-size: var(--text-sm);
+    color: var(--primary);
+    font-style: normal;
     font-family: var(--font-mono);
 }
 
-/* Tree Structure */
-.philosophy__tree {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: var(--space-l);
-}
-
-.tree__trunk {
+.c-philosophy__tree {
+    position: absolute;
+    top: 20%;
+    bottom: 0;
+    left: 50%;
     width: 2px;
-    height: 40px;
-    background: var(--accent-primary);
-    margin-bottom: 0;
+    background: linear-gradient(to bottom, var(--primary) 0%, rgba(175, 27, 27, 0.1) 100%);
+    transform: translateX(-50%);
+    z-index: var(--z-normal);
 }
 
-.tree__branch-horizontal {
-    width: 75%;
-    /* Adjust based on card grid width */
-    height: 2px;
-    background: var(--accent-primary);
-    position: relative;
-}
-
-/* Cards Grid */
-.philosophy__grid {
+.c-philosophy__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-m);
-    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 var(--space-3xl);
+    position: relative;
+    z-index: var(--z-normal);
+}
+
+@media (max-width: 768px) {
+    .c-philosophy__tree {
+        left: 20px;
+        transform: none;
+    }
+
+    .c-philosophy__grid {
+        grid-template-columns: 1fr;
+        padding-left: var(--space-xl);
+        gap: 4rem var(--space-3xl);
+    }
+}
+
+.c-philosophy-item {
     position: relative;
 }
 
-/* Connectors from branch to cards */
-.philosophy__card {
-    background: var(--bg-primary);
-    padding: var(--space-l);
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
-    position: relative;
-    margin-top: 40px;
-    /* Space for the vertical connector */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-/* Vertical lines connecting horizontal branch to each card */
-.philosophy__card::before {
+.c-philosophy-item::before {
     content: '';
     position: absolute;
-    top: -42px;
-    /* Connect to horizontal branch: -40px margin - 2px branch height */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 42px;
-    background: var(--accent-primary);
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    top: 24px;
 }
 
-/* Hover Effects */
-.philosophy__card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border-color: var(--accent-primary);
-}
-
-.card__icon {
-    font-size: 2.5rem;
-    color: var(--accent-primary);
-    margin-bottom: var(--space-m);
-}
-
-.card__title {
-    font-size: 1.25rem;
-    margin-bottom: var(--space-s);
-    color: var(--text-primary);
-}
-
-.card__description {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-    .philosophy__grid {
-        grid-template-columns: repeat(2, 1fr);
+@media (min-width: 768px) {
+    .c-philosophy-item:nth-child(odd) {
+        text-align: right;
+        justify-self: end;
+        height: 50%;
     }
 
-    .tree__branch-horizontal {
-        width: 50%;
+    .c-philosophy-item:nth-child(even) {
+        text-align: left;
+        justify-self: start;
+        margin-top: 50%;
     }
 
-    /* Adjust connectors for 2 rows */
-    .philosophy__card {
-        margin-top: 20px;
-        /* Reduced margin */
+    .c-philosophy-item:nth-child(odd)::before {
+        /* Half of gap (64px/2 + dot adjustment) roughly */
+        /* Exact calculation: gap is 4rem (64px). We need to reach center.
+       This needs fine tuning based on gap. Let's assume absolute center. */
+        right: calc(var(--space-3xl) / -2 - 6px);
     }
 
-    .tree__branch-horizontal,
-    .tree__trunk,
-    .philosophy__card::before {
-        display: none;
-    }
-
-    .philosophy__card {
-        margin-top: 0;
+    .c-philosophy-item:nth-child(even)::before {
+        left: calc(var(--space-3xl) / -2 - 6px);
     }
 }
 
-@media (max-width: 600px) {
-    .philosophy__grid {
-        grid-template-columns: 1fr;
+/* Mobile positioning */
+@media (max-width: 768px) {
+    .c-philosophy-item::before {
+        left: calc(var(--space-3xl) / -2);
+        /* left: calc(var(--space-3xl) / -2 - 6px); */
     }
 }
