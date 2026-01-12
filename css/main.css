@@ -1,39 +1,25 @@
 /* ==========================================================================
-   ITCSS ARCHITECTURE
-   Inverted Triangle CSS - Organized from generic to specific
+   MAIN CSS ENTRY POINT
+   ITCSS Architecture
    ========================================================================== */
 
-/* 1. SETTINGS - Design tokens, variables, config
-   ========================================================================== */
-@import "./1-settings/_settings.css";
+/* 1. Settings */
+@import "./settings/_settings.css";
 
-/* 2. GENERIC - CSS resets, normalize
-   ========================================================================== */
-@import "./2-generic/_resets.css";
+/* 2. Tools */
+@import "./tools/_tools.css";
 
-/* 3. ELEMENTS - Base HTML element styles
-   ========================================================================== */
-@import "./3-elements/_elements.css";
+/* 3. Generic */
+@import "./generic/_generic.css";
 
-/* 4. OBJECTS - Layout patterns, containers (OOCSS)
-   ========================================================================== */
-@import "./4-objects/_layout.css";
+/* 4. Elements */
+@import "./elements/_elements.css";
 
-/* 5. COMPONENTS - UI components (BEM)
-   ========================================================================== */
-@import "./5-components/_header.css";
-@import "./5-components/_nav.css";
-@import "./5-components/_configuration.css";
-@import "./5-components/_about.css";
-@import "./5-components/_social-icons.css";
-@import "./5-components/_profile.css";
-@import "./5-components/_philosophy.css";
-@import "./5-components/_knowledge.css";
-@import "./5-components/_projects.css";
-@import "./5-components/_hobbies.css";
-@import "./5-components/_footer.css";
-@import "./5-components/_contact-icons.css";
+/* 5. Objects */
+@import "./objects/_objects.css";
 
-/* 6. UTILITIES - Helper classes, overrides
-   ========================================================================== */
-@import "./6-utilities/_utilities.css";
+/* 6. Components */
+@import "./components/_components.css";
+
+/* 7. Utilities */
+@import "./utilities/_utility_index.css";

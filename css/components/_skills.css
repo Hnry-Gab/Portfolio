@@ -1,0 +1,177 @@
+/* ==========================================================================
+   COMPONENT: SKILLS
+   ========================================================================== */
+
+/* --- Controls --- */
+.c-skills-controls {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+}
+
+.c-skills-controls .c-btn.active {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
+
+/* --- Container --- */
+.c-skills-container {
+    width: 100%;
+    overflow: hidden;
+    /* Hide overflow for marquees */
+    position: relative;
+    padding: var(--space-md) 0;
+}
+
+/* --- Items (Shared) --- */
+.c-skill-item {
+    background: var(--background-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    min-width: 120px;
+    flex-shrink: 0;
+}
+
+.c-skill-item i {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.c-skill-item span {
+    font-size: var(--text-sm);
+    color: var(--muted);
+    font-weight: var(--weight-medium);
+}
+
+/* --- Mode: Single (Infinite Marquee) --- */
+.c-skills-mode--single .c-skills-marquee {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.c-skills-mode--single .c-skills-marquee__track {
+    display: flex;
+    gap: var(--space-md);
+    animation: scrollLeft 15s linear infinite;
+    /* Ensure track is wide enough */
+    width: max-content;
+}
+
+/* --- Mode: Multi --- */
+.c-skills-mode--multi {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.c-skills-row {
+    display: flex;
+    overflow-x: auto;
+    gap: var(--space-md);
+    padding-bottom: var(--space-sm);
+    scrollbar-width: none;
+}
+
+.c-skills-row--categories {
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.c-skill-category-btn {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-size: var(--text-md);
+    font-weight: var(--weight-bold);
+    cursor: pointer;
+    padding: var(--space-xs) var(--space-sm);
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.c-skill-category-btn:hover,
+.c-skill-category-btn.active {
+    color: var(--primary);
+}
+
+.c-skill-category-btn.active {
+    border-bottom: 2px solid var(--primary);
+}
+
+.c-skills-row__wrapper {
+    display: flex;
+    gap: var(--space-md);
+    padding: 0 var(--space-md);
+    min-width: min-content;
+}
+
+.c-skills-mode--all {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.c-skills-section__title {
+    font-size: var(--text-sm);
+    color: var(--muted);
+    margin-bottom: var(--space-sm);
+    padding-left: var(--space-md);
+    border-left: 3px solid var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.c-skills-mode--all .c-skills-marquee {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.c-skills-mode--all .c-skills-marquee__track {
+    display: flex;
+    gap: var(--space-md);
+    animation: scrollLeft 30s linear infinite;
+    width: max-content;
+}
+
+.c-skills-mode--all .c-skills-marquee__track--reverse {
+    animation-name: scrollRight;
+}
+
+/* --- Animations --- */
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* Assumes track contains 2 sets, moves halfway */
+}
+
+@keyframes scrollRight {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Hover Pausing */
+.c-skills-marquee:hover .c-skills-marquee__track {
+    animation-play-state: paused;
+}
