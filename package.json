@@ -1,0 +1,24 @@
+{
+  "name": "portfolioprofissional",
+  "version": "1.0.0",
+  "description": "Criação de um portfolio para apresentar meus projetos e minhas habilidades técnicas",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hnry-Gab/PortfolioProfissional.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Hnry-Gab/PortfolioProfissional/issues"
+  },
+  "homepage": "https://github.com/Hnry-Gab/PortfolioProfissional#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

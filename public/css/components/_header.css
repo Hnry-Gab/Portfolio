@@ -1,0 +1,150 @@
+/* ==========================================================================
+   COMPONENT: HEADER
+   ========================================================================== */
+
+.c-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    z-index: var(--z-sticky);
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.c-header.is-scrolled {
+    background-color: rgba(14, 12, 12, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.c-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.c-header__logo {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-bold);
+    font-size: 1.5rem;
+    color: var(--foreground);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.c-header__logo span {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .c-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--background);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-xl);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: var(--z-overlay);
+    }
+
+    .c-nav.active {
+        transform: translateX(0);
+    }
+
+    .c-nav__link {
+        font-size: var(--text-h2);
+        font-weight: var(--weight-bold);
+    }
+}
+
+@media (min-width: 769px) {
+    .c-nav {
+        display: flex;
+        gap: var(--space-xl);
+    }
+}
+
+.c-nav__link {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.c-nav__link:hover,
+.c-nav__link.is-active,
+.c-nav__link.active {
+    color: var(--foreground);
+}
+
+.c-nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.c-nav__link:hover::after,
+.c-nav__link.is-active::after,
+.c-nav__link.active::after {
+    width: 100%;
+}
+
+/* Mobile Toggle */
+.c-header__toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--foreground);
+    cursor: pointer;
+    z-index: var(--z-modal);
+    /* Above the menu */
+}
+
+@media (max-width: 768px) {
+    .c-header__toggle {
+        display: block;
+    }
+}
+
+/* Theme Toggle */
+.c-theme-toggle {
+    background: none;
+    border: none;
+    color: var(--foreground);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin-left: var(--space-md);
+}
+
+.c-theme-toggle:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .c-theme-toggle {
+        margin-left: 0;
+        margin-top: var(--space-lg);
+        /* Add space inside mobile menu */
+    }
+}

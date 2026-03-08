@@ -1,0 +1,48 @@
+/* ==========================================================================
+   COMPONENT: FOOTER
+   ========================================================================== */
+
+.c-footer {
+    background: var(--background-alt);
+    border-top: 1px solid var(--border);
+    padding: var(--space-2xl) 0;
+    margin-top: var(--space-3xl);
+    text-align: center;
+}
+
+.c-footer__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.c-footer__social {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.c-social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    transition: all 0.3s ease;
+}
+
+.c-social-link:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.c-footer__copy {
+    color: var(--muted);
+    font-size: var(--text-sm);
+}

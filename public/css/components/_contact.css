@@ -1,0 +1,78 @@
+/* ==========================================================================
+   COMPONENT: CONTACT
+   ========================================================================== */
+
+.c-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xl);
+    justify-content: center;
+}
+
+.c-contact__info {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.c-contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.c-contact-item__icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(175, 27, 27, 0.1);
+    color: var(--primary);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.c-contact-form {
+    flex: 1;
+    min-width: 300px;
+    background: var(--card);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+}
+
+.c-form-group {
+    margin-bottom: var(--space-md);
+}
+
+.c-form-label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-size: var(--text-sm);
+    color: var(--muted);
+}
+
+.c-form-input,
+.c-form-textarea {
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--foreground);
+    transition: border-color 0.3s ease;
+}
+
+.c-form-input:focus,
+.c-form-textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.c-form-textarea {
+    min-height: 150px;
+    resize: vertical;
+}

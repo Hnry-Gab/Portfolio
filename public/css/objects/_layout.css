@@ -1,0 +1,53 @@
+/* ==========================================================================
+   OBJECTS: LAYOUT
+   Structural patterns (OOCSS)
+   ========================================================================== */
+
+/* Container */
+.o-container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+}
+
+/* Section */
+.o-section {
+    padding-top: var(--section-gap);
+    padding-bottom: var(--section-gap);
+    position: relative;
+}
+
+/* Grid System (Simple) */
+.o-grid {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.o-grid--2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.o-grid--3 {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Flex Utilities for Layout */
+.o-flex {
+    display: flex;
+}
+
+.o-flex--center {
+    align-items: center;
+    justify-content: center;
+}
+
+.o-flex--between {
+    justify-content: space-between;
+}
+
+.o-flex--column {
+    flex-direction: column;
+}

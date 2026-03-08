@@ -1,0 +1,50 @@
+/* ==========================================================================
+   ELEMENTS: BASE
+   Unclassed HTML elements
+   ========================================================================== */
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-bold);
+    line-height: var(--leading-tight);
+    color: var(--foreground);
+    margin-bottom: var(--space-md);
+}
+
+h1 {
+    font-size: var(--text-h1);
+}
+
+h2 {
+    font-size: var(--text-h2);
+}
+
+h3 {
+    font-size: var(--text-h3);
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: var(--space-md);
+    color: var(--muted);
+    max-width: 65ch;
+    /* Comfortable reading width */
+}
+
+/* Links */
+a {
+    cursor: pointer;
+}
+
+/* Horizontal Rule */
+hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: var(--space-xl) 0;
+}

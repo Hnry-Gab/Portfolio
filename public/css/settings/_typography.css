@@ -1,0 +1,45 @@
+/* ==========================================================================
+   SETTINGS: TYPOGRAPHY
+   Fonts and Scale
+   ========================================================================== */
+
+/* Import Google Fonts - Outfit (Headings) and Inter (Body) and JetBrains Mono (Code) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@600;700;800&display=swap');
+
+:root {
+    /* FONTS */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* SCALE (Fluid Typography) */
+    --text-display: clamp(2rem, 8vw, 4rem);
+    /* Hero titles */
+    --text-h1: clamp(2.25rem, 5vw, 3.5rem);
+    /* Section titles */
+    --text-h2: clamp(1.5rem, 3vw, 2rem);
+    /* Subtitles */
+    --text-h3: 1.25rem;
+    /* Card titles */
+    --text-body: 1rem;
+    /* 16px - Texto padrão */
+    --text-sm: 0.875rem;
+    /* Labels */
+    --text-xs: 0.75rem;
+    /* Captions */
+
+    /* WEIGHTS */
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+    --weight-extrabold: 800;
+
+    /* LINE HEIGHTS */
+    --leading-none: 1;
+    --leading-tight: 1.2;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 2;
+}
