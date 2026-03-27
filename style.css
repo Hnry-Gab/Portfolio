@@ -598,8 +598,8 @@ body {
 }
 .featured-badge {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 4px;
+  right: 4px;
   background: var(--red);
   color: #fff;
   font-size: 0.72rem;
